@@ -81,9 +81,11 @@ class DeviceActivity : AppCompatActivity() {
         Log.e("TAG", "-------------------------------------------")
         deviceArrayList.map { Log.e("TAG", "old ${it.id} ${it.Name}") }
         userArrayList.map { Log.e("TAG", "use ${it.id} ${it.Device}") }
-        val newList = deviceArrayList.filter { it.id !in userArrayList.map { item -> item.Device } }.toMutableList()
+
+
+        val newList = deviceArrayList.minus(userArrayList)
         Log.e("TAG", "-------------------------------------------")
-        newList.map { Log.e("TAG", "new ${it.id} ${it.Name}") }
+        newList.map { Log.e("TAG", "new $newList") }
 
         /* for (device in deviceArrayList) {
              for (user in userArrayList) {
@@ -93,15 +95,15 @@ class DeviceActivity : AppCompatActivity() {
                  }
              }
          }*/
-        var pos = -1
+        /*var pos = -1
         for (i in deviceArrayList.indices) {
             if (deviceArrayList[i].id == "D0") {
                 pos = i
             }
         }
-        newList.add(0, deviceArrayList[pos])
+        newList.add(0, deviceArrayList[pos])*/
         Log.e("TAG", "-------------------------------------------")
-        newList.map { Log.e("TAG", "add ${it.id} ${it.Name}") }
+        newList.map { Log.e("TAG", "add $newList") }
         binding.listDevice.adapter = ArrayAdapter(this@DeviceActivity, R.layout.simple_list_item_1, newList)
     }
 

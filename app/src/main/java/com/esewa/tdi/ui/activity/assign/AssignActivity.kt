@@ -1,5 +1,6 @@
 package com.esewa.tdi.ui.activity.assign
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.ArrayAdapter
@@ -10,7 +11,9 @@ import com.esewa.tdi.data.Cable
 import com.esewa.tdi.data.Charger
 import com.esewa.tdi.data.Device
 import com.esewa.tdi.data.User
+import com.esewa.tdi.ui.activity.register.RegisterActivity
 import com.google.firebase.database.*
+import esewa.tdi.AddDeviceChargerCableActivity
 import esewa.tdi.databinding.ActivityAssignBinding
 
 class AssignActivity : AppCompatActivity() {
@@ -53,6 +56,10 @@ class AssignActivity : AppCompatActivity() {
             Log.e("TAG", " editText: $names")
             Log.e("TAG", " editText: $selectedUser")
 
+        }
+
+        binding.btnAddDevices.setOnClickListener {
+            startActivity(Intent(this, AddDeviceChargerCableActivity::class.java))
         }
     }
 
