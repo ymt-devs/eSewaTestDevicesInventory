@@ -14,7 +14,7 @@
         android:theme="@style/Theme.App"
         tools:ignore="LockedOrientationActivity">
         <activity
-            android:name=".AddDeviceChargerCableActivity"
+            android:name="com.esewa.tdi.ui.activity.adddevicecablecharger.AddDeviceChargerCableActivity"
             android:exported="false" />
         <activity
             android:name="com.esewa.tdi.ui.activity.profile.ProfileActivity"

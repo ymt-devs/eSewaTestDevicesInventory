@@ -11,9 +11,8 @@ import com.esewa.tdi.data.Cable
 import com.esewa.tdi.data.Charger
 import com.esewa.tdi.data.Device
 import com.esewa.tdi.data.User
-import com.esewa.tdi.ui.activity.register.RegisterActivity
 import com.google.firebase.database.*
-import esewa.tdi.AddDeviceChargerCableActivity
+import com.esewa.tdi.ui.activity.adddevicecablecharger.AddDeviceChargerCableActivity
 import esewa.tdi.databinding.ActivityAssignBinding
 
 class AssignActivity : AppCompatActivity() {

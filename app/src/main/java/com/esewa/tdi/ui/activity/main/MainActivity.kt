@@ -6,7 +6,6 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.esewa.tdi.adapter.CardAdapter
 import com.esewa.tdi.data.User
@@ -43,6 +42,7 @@ class MainActivity : AppCompatActivity(), CardClickListener {
         setUserData()
         getAssignedUserData()
         handleAdminTask()
+        refreshApp()
 
 
         binding.fab.setOnClickListener {
@@ -142,6 +142,41 @@ class MainActivity : AppCompatActivity(), CardClickListener {
             }
 
         })
+    }
+
+    private fun refreshApp() {
+        binding.swipeToRefresh.setOnRefreshListener {
+
+            dbref = FirebaseDatabase.getInstance().getReference("Users")
+            dbref.addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+
+                    if (snapshot.exists()) {
+                        val userArrayList = mutableListOf<User>()
+                        for (userSnapshot in snapshot.children) {
+                            //Log.e("TAG", "userSnapshot.value ${userSnapshot.value}")
+                            val user = try {
+                                userSnapshot.getValue(User::class.java)
+                            } catch (e: Exception) {
+                                e.printStackTrace()
+                                null
+                            }
+                            user?.let { userArrayList.add(it) }
+                        }
+                        binding.userRecyclerView.adapter = CardAdapter(userArrayList, this@MainActivity)
+                        hideDialog()
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })
+
+            Toast.makeText(this, "Page refreshed!", Toast.LENGTH_SHORT).show()
+            binding.swipeToRefresh.isRefreshing = false
+        }
     }
 
     override fun onItemClick(user: User) {

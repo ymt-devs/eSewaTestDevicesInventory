@@ -4,6 +4,7 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/user/Desktop/recycler/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.183" />
+        <entry key="..\:/Users/user/Desktop/recycler/app/src/main/res/drawable/app_logo.xml" value="0.1855" />
         <entry key="..\:/Users/user/Desktop/recycler/app/src/main/res/drawable/ic_esewa_white_logo_splashscreen.xml" value="0.1035" />
         <entry key="..\:/Users/user/Desktop/recycler/app/src/main/res/drawable/ic_finger_print_dark.xml" value="0.183" />
         <entry key="..\:/Users/user/Desktop/recycler/app/src/main/res/drawable/ic_launcher_background.xml" value="0.183" />
@@ -29,6 +30,7 @@
         <entry key="..\:/Users/user/Desktop/recycler/app/src/main/res/layout/custom_spinner.xml" value="0.264" />
         <entry key="..\:/Users/user/Desktop/recycler/app/src/main/res/layout/user_item.xml" value="0.264" />
         <entry key="..\:/Users/user/Desktop/recycler/app/src/main/res/menu/nav_menu.xml" value="0.23802083333333332" />
+        <entry key="..\:/Users/user/Desktop/recycler/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1585" />
       </map>
     </option>
   </component>

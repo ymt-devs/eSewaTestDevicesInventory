@@ -57,7 +57,7 @@ class UserDetailActivity : AppCompatActivity() {
         val deviceView: TextView = findViewById(R.id.recDevice1)
         val chargerView: TextView = findViewById(R.id.recCharger1)
         val cableView: TextView = findViewById(R.id.recCable1)
-        val tvDateTime: TextView = findViewById(R.id.tvDateTime)
+//        val tvDateTime: TextView = findViewById(R.id.tvDateTime)
 
         nameView.text = user.Name
         deviceView.text = user.Device
@@ -67,7 +67,7 @@ class UserDetailActivity : AppCompatActivity() {
         val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss", Locale.getDefault())
 //        currentDate = sdf.format(Date(user.date))
         currentDate = sdf.format(Date())
-        tvDateTime.text = currentDate
+    //       tvDateTime.text = currentDate
 
     }
 

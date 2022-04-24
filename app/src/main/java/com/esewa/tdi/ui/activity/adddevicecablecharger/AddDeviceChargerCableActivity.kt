@@ -1,4 +1,4 @@
-package esewa.tdi
+package com.esewa.tdi.ui.activity.adddevicecablecharger
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,6 @@ import android.util.Log
 import android.widget.Toast
 import com.google.firebase.database.FirebaseDatabase
 import esewa.tdi.databinding.ActivityAddDeviceChargerCableBinding
-import java.text.SimpleDateFormat
 
 class AddDeviceChargerCableActivity : AppCompatActivity() {
 
@@ -21,18 +20,31 @@ class AddDeviceChargerCableActivity : AppCompatActivity() {
 
         binding.btnAddDevice.setOnClickListener {
             val name = binding.device.text.toString()
-            val currentTime =  System.currentTimeMillis() / 1000L;
-            addDevice( id = currentTime.toString(), name = name )
+            val currentTime = System.currentTimeMillis() / 1000L;
+            if (name.isEmpty()) {
+                binding.device.error = "Empty!"
+            } else {
+                addDevice(id = currentTime.toString(), name = name)
+            }
         }
+
         binding.btnAddCharger.setOnClickListener {
             val name = binding.charger.text.toString()
-            val currentTime =  System.currentTimeMillis() / 1000L;
-            addCharger( id = currentTime.toString(), name = name )
+            val currentTime = System.currentTimeMillis() / 1000L;
+            if (name.isEmpty()) {
+                binding.charger.error = "Empty!"
+            } else {
+                addCharger(id = currentTime.toString(), name = name)
+            }
         }
         binding.btnAddCable.setOnClickListener {
             val name = binding.cable.text.toString()
-            val currentTime =  System.currentTimeMillis() / 1000L;
-            addCable( id = currentTime.toString(), name = name )
+            val currentTime = System.currentTimeMillis() / 1000L;
+            if (name.isEmpty()) {
+                binding.cable.error = "Empty!"
+            } else {
+                addCable(id = currentTime.toString(), name = name)
+            }
         }
 
     }
