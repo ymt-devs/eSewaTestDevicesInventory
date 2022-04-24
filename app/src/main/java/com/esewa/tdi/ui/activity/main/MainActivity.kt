@@ -195,4 +195,6 @@ class MainActivity : AppCompatActivity(), CardClickListener {
         backPressedTime = System.currentTimeMillis()
     }
 
+    
+
 }

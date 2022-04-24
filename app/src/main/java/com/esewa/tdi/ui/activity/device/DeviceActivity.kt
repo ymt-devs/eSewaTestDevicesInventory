@@ -76,35 +76,37 @@ class DeviceActivity : AppCompatActivity() {
     }
 
     private fun setList() {
-//        val newList = mutableListOf<Device>()
 
         Log.e("TAG", "-------------------------------------------")
         deviceArrayList.map { Log.e("TAG", "old ${it.id} ${it.Name}") }
         userArrayList.map { Log.e("TAG", "use ${it.id} ${it.Device}") }
 
-
-        val newList = deviceArrayList.minus(userArrayList)
         Log.e("TAG", "-------------------------------------------")
-        newList.map { Log.e("TAG", "new $newList") }
 
-        /* for (device in deviceArrayList) {
-             for (user in userArrayList) {
-                 if (device.id != user.Device) {
-                     newList.add(device)
-                     break
-                 }
-             }
-         }*/
-        /*var pos = -1
-        for (i in deviceArrayList.indices) {
-            if (deviceArrayList[i].id == "D0") {
-                pos = i
+        val newDeviceList = mutableListOf<Device>().apply {
+            addAll(deviceArrayList)
+        }
+        newDeviceList.map { Log.e("TAG", "copy ${it.id} ${it.Name}") }
+
+        Log.e("TAG", "-------------------------------------------")
+
+        for (device in deviceArrayList) {
+            for (user in userArrayList) {
+                if (device.Name == user.Device) {
+                    newDeviceList.remove(device)
+                }
             }
         }
-        newList.add(0, deviceArrayList[pos])*/
+
+        newDeviceList.map { Log.e("TAG", "final ${it.id} ${it.Name}") }
+
         Log.e("TAG", "-------------------------------------------")
-        newList.map { Log.e("TAG", "add $newList") }
-        binding.listDevice.adapter = ArrayAdapter(this@DeviceActivity, R.layout.simple_list_item_1, newList)
+
+        binding.listDevice.adapter = ArrayAdapter(this@DeviceActivity, R.layout.simple_list_item_1, newDeviceList)
+
+
+
+
     }
 
 }
