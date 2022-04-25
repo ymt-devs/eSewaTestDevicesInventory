@@ -184,7 +184,7 @@ class MainActivity : AppCompatActivity(), CardClickListener {
                             addAll(userArrayList)
                         }
                         for (user in userArrayList) {
-                            if (user.Device == "none") {
+                            if (user.Device == "none" || user.Device == null) {
                                 assignUser.map { Log.e("TAG", "assigned : ${it.Device}") }
                                 assignUser.remove(user)
                             }
