@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-
-    <string name="app_name">एसेवा  परीक्षण उपकरण सूची</string>
-    <string name="unassigned">तोकिएको छैन</string>
-    <string name="devices">उपकरणहरू</string>
-    <string name="cables">केबलहरू</string>
-    <string name="charger">चार्जरहरू</string>
-</resources>

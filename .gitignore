@@ -13,3 +13,53 @@
 .externalNativeBuild
 .cxx
 local.properties
+#built application files
+*.apk
+*.ap_
+*.aab
+*.zip
+
+# files for the dex VM
+*.dex
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Windows thumbnail db
+Thumbs.db
+
+# OSX files
+.DS_Store
+
+# Eclipse project files
+.classpath
+.project
+!sonar-project.properties
+res/values/com_crashlytics_export_strings.xml
+libs/crashlytics.jar
+
+# Android Studio
+.idea
+.gradle
+build/
+app/
+.navigation
+captures/
+output.json
+output-metadata.json
+com_crashlytics_export_strings.xml
+crashlytics-build.properties
+*.iml
+*.iws
+*.ipr
+.idea/
+*/build/
+*~
+*.swp

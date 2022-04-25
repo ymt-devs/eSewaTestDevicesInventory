@@ -1,7 +1,0 @@
-<resources>
-    <string name="app_name">eSewa Test Device Inventory</string>
-    <string name="unassigned">Unassigned</string>
-    <string name="devices">Devices</string>
-    <string name="cables">Cables</string>
-    <string name="charger">Charger</string>
-</resources>
