@@ -103,8 +103,6 @@ class RegisterActivity : AppCompatActivity() {
             }
         }
 
-        binding.tvLogin.setOnClickListener { finish() }
-
     }
 
     private fun addUser(id: String, name: String, device: String, charger: String, cable: String) {

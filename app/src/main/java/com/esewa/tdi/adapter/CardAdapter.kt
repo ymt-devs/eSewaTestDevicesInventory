@@ -35,8 +35,8 @@ class CardAdapter(
         fun bind(user: User) = with(binding) {
             fullName.text = user.Name
             deviceName.text = user.Device
-            val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss", Locale.getDefault())
-           /* user.date?.let {
+            /*val sdf = SimpleDateFormat("dd/M/yyyy hh:mm:ss", Locale.getDefault())
+           *//* user.date?.let {
                 if (it > 0) {
                     assigendDate.visible()
                     assigendDate.text = sdf.format(Date(it))

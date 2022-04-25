@@ -126,18 +126,5 @@
             </LinearLayout>
         </androidx.cardview.widget.CardView>
 
-        <TextView
-            android:id="@+id/tv_RC"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20sp"
-            android:clickable="true"
-            android:gravity="center"
-            android:minHeight="48dp"
-            android:onClick="onClick"
-            android:text="Don't have an Account ? Register."
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            tools:ignore="OnClick" />
     </LinearLayout>
 </ScrollView>

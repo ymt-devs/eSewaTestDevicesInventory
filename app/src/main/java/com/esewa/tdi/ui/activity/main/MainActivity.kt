@@ -2,12 +2,14 @@ package com.esewa.tdi.ui.activity.main
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import com.esewa.tdi.adapter.CardAdapter
+import com.esewa.tdi.data.Device
 import com.esewa.tdi.data.User
 import com.esewa.tdi.interfaces.CardClickListener
 import com.esewa.tdi.ui.activity.assign.AssignActivity
@@ -21,6 +23,7 @@ import com.esewa.tdi.util.*
 import com.google.firebase.database.*
 import esewa.tdi.R
 import esewa.tdi.databinding.ActivityMainBinding
+import java.util.Collections.addAll
 
 class MainActivity : AppCompatActivity(), CardClickListener {
 
@@ -28,6 +31,7 @@ class MainActivity : AppCompatActivity(), CardClickListener {
         private var TAG = MainActivity::class.java.simpleName.toString()
     }
 
+    private lateinit var userList: List<User>
     private var backPressedTime = 0L
     private lateinit var binding: ActivityMainBinding
     private lateinit var dbref: DatabaseReference
@@ -64,7 +68,7 @@ class MainActivity : AppCompatActivity(), CardClickListener {
     }
 
     private fun setUserData() {
-        binding.userName.text = sharedPrefUtil.getStringData(SharedPrefUtil.NAME) ?: "User"
+        binding.userName.text = sharedPrefUtil.getStringData(SharedPrefUtil.NAME) ?: "User :"
         binding.userEmail.text = sharedPrefUtil.getStringData(SharedPrefUtil.EMAIL) ?: "-"
     }
 
@@ -132,7 +136,19 @@ class MainActivity : AppCompatActivity(), CardClickListener {
                         }
                         user?.let { userArrayList.add(it) }
                     }
-                    binding.userRecyclerView.adapter = CardAdapter(userArrayList, this@MainActivity)
+                    val allUsers = CardAdapter(userArrayList, this@MainActivity)
+                    val assignUser = mutableListOf<User>().apply {
+                        addAll(userArrayList)
+                    }
+                            for (user in userArrayList) {
+                                if (user.Device == "none" || user.Device == null) {
+                                    assignUser.map { Log.e("TAG", "assigned : ${it.Device}") }
+                                    assignUser.remove(user)
+                                }
+
+                            binding.userRecyclerView.adapter = CardAdapter(assignUser, this@MainActivity)
+                            }
+
                     hideDialog()
                 }
             }
@@ -163,7 +179,18 @@ class MainActivity : AppCompatActivity(), CardClickListener {
                             }
                             user?.let { userArrayList.add(it) }
                         }
-                        binding.userRecyclerView.adapter = CardAdapter(userArrayList, this@MainActivity)
+                        val allUsers = CardAdapter(userArrayList, this@MainActivity)
+                        val assignUser = mutableListOf<User>().apply {
+                            addAll(userArrayList)
+                        }
+                        for (user in userArrayList) {
+                            if (user.Device == "none") {
+                                assignUser.map { Log.e("TAG", "assigned : ${it.Device}") }
+                                assignUser.remove(user)
+                            }
+                            binding.userRecyclerView.adapter = CardAdapter(assignUser, this@MainActivity)
+                        }
+
                         hideDialog()
                     }
                 }
@@ -194,7 +221,4 @@ class MainActivity : AppCompatActivity(), CardClickListener {
         }
         backPressedTime = System.currentTimeMillis()
     }
-
-    
-
 }

@@ -13,6 +13,7 @@ import com.esewa.tdi.data.Device
 import com.esewa.tdi.data.User
 import com.google.firebase.database.*
 import com.esewa.tdi.ui.activity.adddevicecablecharger.AddDeviceChargerCableActivity
+import com.esewa.tdi.ui.activity.register.RegisterActivity
 import esewa.tdi.databinding.ActivityAssignBinding
 
 class AssignActivity : AppCompatActivity() {
@@ -57,9 +58,14 @@ class AssignActivity : AppCompatActivity() {
 
         }
 
+        binding.tvRC.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
+
         binding.btnAddDevices.setOnClickListener {
             startActivity(Intent(this, AddDeviceChargerCableActivity::class.java))
         }
+
     }
 
     private fun updateData(userId: String, name: String, device: String, charger: String, cable: String) {

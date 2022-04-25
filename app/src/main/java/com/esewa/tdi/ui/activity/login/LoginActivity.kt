@@ -60,10 +60,6 @@ class LoginActivity : AppCompatActivity() {
                 Toast.makeText(this, "Empty Fields are not Allowed !!", Toast.LENGTH_SHORT).show()
             }
         }
-
-        binding.tvRC.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
-        }
     }
 
     private fun showDialog() {
